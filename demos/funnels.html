@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Funnel demos: course, ebook, software, membership</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--ink:#111;--mute:#666;--line:#E5E5E5;--cta:#C2410C;--ctah:#9A3412;--ctat:#fff;--ok:#0B6E4F;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-t=light]){--bg:#000;--ink:#F5F5F5;--mute:#A3A3A3;--line:#262626;--cta:#FB923C;--ctah:#FDBA74;--ctat:#000;--ok:#34D399}}
+:root[data-t=dark]{--bg:#000;--ink:#F5F5F5;--mute:#A3A3A3;--line:#262626;--cta:#FB923C;--ctah:#FDBA74;--ctat:#000;--ok:#34D399}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 "Public Sans",system-ui,sans-serif}
+.w{max-width:900px;margin:0 auto;padding:0 18px}
+.top{border-bottom:1px solid var(--line)}.top .w{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:56px;flex-wrap:wrap;padding-top:6px;padding-bottom:6px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}.tabs button,.tg{font:500 14px "Public Sans",sans-serif;padding:6px 12px;border-radius:99px;border:1px solid var(--line);background:none;color:var(--mute);cursor:pointer}.tabs .on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.demo{border-bottom:1px solid var(--line);color:var(--mute);font-size:13px;text-align:center;padding:7px 12px}
+.steps{display:flex;gap:6px;font-size:13px;color:var(--mute);margin:20px 0 0;flex-wrap:wrap}.steps span{padding:2px 9px;border-radius:99px;border:1px solid var(--line)}.steps .on{background:var(--ink);color:var(--bg);border-color:var(--ink)}.steps .dn{color:var(--ok);border-color:var(--ok)}
+h1{font-size:clamp(28px,6vw,44px);line-height:1.1;letter-spacing:-.025em;font-weight:800;margin:26px 0 14px;max-width:21ch}h2{font-size:20px;margin:32px 0 8px}
+p{margin:0 0 12px}.mute{color:var(--mute)}.small{font-size:14px}.sub{font-size:18px;color:var(--mute);max-width:56ch}
+.btn{border:0;background:var(--cta);color:var(--ctat);font:700 17px "Public Sans",sans-serif;padding:14px 26px;border-radius:8px;cursor:pointer}.btn:hover{background:var(--ctah)}.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.g{background:none;color:var(--mute);border:1px solid var(--line);font-weight:500;font-size:15px}
+.card{border:1px solid var(--line);border-radius:10px;padding:20px}
+ul.chk{list-style:none;padding:0;margin:0}ul.chk li{padding:5px 0 5px 26px;position:relative}ul.chk li::before{content:"";position:absolute;left:4px;top:12px;width:10px;height:6px;border-left:2px solid var(--ok);border-bottom:2px solid var(--ok);transform:rotate(-45deg)}
+.g2{display:grid;gap:18px;grid-template-columns:1fr}@media(min-width:760px){.g2{grid-template-columns:1.3fr 1fr}}
+label.f{display:block;font-size:14px;color:var(--mute);margin:0 0 4px}
+input[type=text],input[type=email]{width:100%;font:inherit;padding:11px 12px;border:1px solid var(--line);border-radius:7px;background:var(--bg);color:var(--ink);margin-bottom:14px}
+:focus-visible{outline:2px solid var(--cta);outline-offset:2px}
+.pay,.plans{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}.pay label,.plan{border:1px solid var(--line);border-radius:7px;padding:9px 13px;cursor:pointer;font-size:15px}.plan{display:block;min-width:200px;flex:1}.plan span{display:block;font-size:14px}
+.bump{border:2px dashed var(--cta);border-radius:8px;padding:14px}.bump label{display:flex;gap:10px;cursor:pointer;font-weight:700}
+.row{display:flex;justify-content:space-between;gap:10px;padding:6px 0}.tot{border-top:1px solid var(--line);margin-top:6px;padding-top:10px;font-weight:800;font-size:18px}
+.key{font:700 18px ui-monospace,Menlo,monospace;border:1px dashed var(--ok);color:var(--ok);padding:10px 14px;border-radius:8px;display:inline-block;margin:6px 0 14px;word-break:break-all}
+.ok li{padding:5px 0;opacity:.2;transition:opacity .4s}.ok li.s{opacity:1}@media(prefers-reduced-motion:reduce){.ok li{transition:none}}
+.log{font:12px/1.5 ui-monospace,Menlo,monospace;color:var(--mute);margin:36px 0 60px}.log b{color:var(--ok)}
+</style>
+</head>
+<body>
+<div class="top"><div class="w"><div class="tabs" id="tabs" role="group" aria-label="Choose a funnel"></div><button class="tg" id="tg" type="button">Switch theme</button></div></div>
+<div class="demo">Interactive funnel demos. No payments are taken and nothing you type is stored.</div>
+<main class="w"><div class="steps" id="steps"></div><div id="app"></div>
+<details class="log"><summary>Under the hood: tracking events this funnel fires</summary><div id="log"></div></details></main>
+<script>
+const F={
+course:{t:'Course',s0:'Offer',h:'Price your work, invoice on time, and get paid in your first month.',sub:'A four-week live cohort for freelancers who are tired of chasing late payments and guessing their rates.',cta:'Join the cohort for $49',guar:'Starts 3 November. 7-day refund if it is not for you.',bt:'What you get',b:['Four live sessions, all recorded','Invoice and contract templates you can use the same day','A pricing worksheet built around your real costs','A private group to ask questions between sessions'],
+ main:{name:'Freelance Finance Cohort',price:49},bump:{name:'Pricing & Invoice Workbook',price:9,desc:'Forty pages of fill-in worksheets and email scripts.'},
+ up:{title:'Add a 1:1 pricing review?',desc:'Send me your current rates and a recent quote. I record a 15-minute video with specific changes.',name:'1:1 pricing review',price:29},
+ done:['Account created','Cohort enrolled','Welcome email sent'],ev:'enrolment_complete'},
+ebook:{t:'Ebook',s0:'Offer',h:'Write a pitch deck in 30 days, without starting from a blank slide.',sub:'A short, practical ebook for founders who need a clear deck before their next meeting.',cta:'Get the ebook for $9',guar:'7-day refund. Instant download.',bt:'Inside the ebook',b:['A 30-day plan, one small task per day','Twelve slide structures for different audiences','Real before and after examples','A checklist to run through before you send it'],
+ main:{name:'The 30-Day Pitch Deck (ebook)',price:9},bump:{name:'Slide template pack',price:5,desc:'Twelve editable slide layouts that match the ebook.'},
+ up:{title:'Turn the ebook into a finished deck this week',desc:'Eight short videos where I build a deck from scratch, plus written feedback on yours.',name:'Pitch Deck Video Program',price:47,timer:1},
+ done:['Download link emailed (expires in 48 hours)','Bonus checklist unlocked','Five-day email sequence started'],ev:'ebook_download_ready'},
+software:{t:'Software',s0:'Pricing',h:'SlotSync: online booking for WordPress sites.',sub:'Let clients book and pay for appointments on your own site. Choose a plan and get your licence key in seconds.',cta:'Continue to checkout',guar:'14-day refund. Works with any WordPress theme.',bt:'Every plan includes',b:['Booking calendar with deposits','Email and SMS reminders','Stripe and PayPal built in','Automatic updates and support'],
+ plans:[{n:'Annual',price:59,note:'1 site. Updates for 12 months.'},{n:'Lifetime',price:149,note:'1 site. Updates forever.'}],main:'SlotSync',
+ bump:{name:'Agency licence (10 sites)',price:79,desc:'Use SlotSync on up to ten client sites.'},
+ up:{title:'Add priority support?',desc:'Replies within four working hours for a year.',name:'Priority support',price:39},
+ done:['Payment confirmed','Signed webhook sent to the licence server','Licence key created and emailed','Account created with download link'],ev:'licence_issued'},
+membership:{t:'Membership',s0:'Offer',h:'A studio membership for designers who want better work, faster.',sub:'New templates, critiques and a private community every month. Try it free for 7 days.',cta:'Start my free trial',guar:'Cancel any time before the trial ends and pay nothing.',bt:'Members get',b:['Four new templates every month','A live critique session each week','Private community and job board','Full archive of past sessions'],
+ main:{name:'Studio Members (monthly)',price:19,today:0},bump:{name:'Template library add-on',price:7,desc:'Every past template, billed monthly with your plan.'},
+ up:{title:'Switch to annual and get two months free',desc:'Pay $190 once a year instead of $19 every month.',name:'Annual plan',price:190,replace:1},
+ done:['Free trial started','Members area unlocked','Welcome email sent','Renewal reminder scheduled for day 5'],ev:'trial_started'}};
+let k=(location.hash||'#course').slice(1),st=0,bump=false,up=false,pl=0,nm='',em='',tm=null;
+if(!F[k])k='course';
+const $=i=>document.getElementById(i),$$=s=>document.querySelectorAll(s),M=n=>'$'+n.toLocaleString('en-US'),f=()=>F[k];
+function log(e,d){$('log').innerHTML+='<div><b>'+new Date().toLocaleTimeString()+'</b> '+e+(d?' '+JSON.stringify(d):'')+'</div>'}
+function rows(final){const x=f(),r=[];
+ if(!(final&&up&&x.up.replace)){if(x.plans)r.push([x.main+' '+x.plans[pl].n,x.plans[pl].price]);else if(x.main.today===0)r.push([x.main.name+', free for 7 days then $'+x.main.price+'/mo',0]);else r.push([x.main.name,x.main.price])}
+ if(bump)r.push([x.bump.name,x.bump.price]);if(final&&up)r.push([x.up.name,x.up.price]);return r}
+const sum=r=>r.reduce((a,b)=>a+b[1],0),rh=r=>r.map(a=>'<div class="row"><span>'+a[0]+'</span><span>'+M(a[1])+'</span></div>').join('')+'<div class="row tot"><span>Total today</span><span>'+M(sum(r))+'</span></div>';
+function steps(){const n=[f().s0,'Checkout','Add-on','Done'];$('steps').innerHTML=n.map((a,i)=>'<span class="'+(i===st?'on':i<st?'dn':'')+'">'+a+'</span>').join('');
+ $('tabs').innerHTML=Object.keys(F).map(a=>'<button type="button" data-k="'+a+'" class="'+(a===k?'on':'')+'">'+F[a].t+'</button>').join('')}
+function go(n){st=n;clearInterval(tm);steps();scrollTo(0,0);[offer,checkout,upsell,done][n]()}
+function offer(){const x=f();log('view_item',{funnel:k});
+ $('app').innerHTML='<h1>'+x.h+'</h1><p class="sub">'+x.sub+'</p>'+(x.plans?'<div class="plans" style="margin-top:20px">'+x.plans.map((p,i)=>'<label class="plan"><input type="radio" name="pl" value="'+i+'" '+(i===pl?'checked':'')+'> <b>'+p.n+' '+M(p.price)+'</b><span class="mute">'+p.note+'</span></label>').join('')+'</div>':'')+'<p style="margin-top:20px"><button class="btn" id="go">'+x.cta+'</button></p><p class="mute small">'+x.guar+'</p><h2>'+x.bt+'</h2><ul class="chk">'+x.b.map(a=>'<li>'+a+'</li>').join('')+'</ul>';
+ $$('input[name=pl]').forEach(r=>r.onchange=()=>{pl=+r.value;log('select_plan',{plan:x.plans[pl].n})});
+ $('go').onclick=()=>{log('begin_checkout',{value:sum(rows())});go(1)}}
+function checkout(){const x=f();
+ $('app').innerHTML='<h1 style="font-size:30px">Checkout</h1><div class="g2"><div class="card"><label class="f" for="nm">Full name</label><input id="nm" type="text" autocomplete="name" value="'+nm+'"><label class="f" for="em">Email</label><input id="em" type="email" autocomplete="email" value="'+em+'"><p class="f small mute" style="margin-bottom:6px">Pay with</p><div class="pay"><label><input type="radio" name="pm" value="Card" checked> Card</label><label><input type="radio" name="pm" value="Paystack"> Paystack</label><label><input type="radio" name="pm" value="PayPal"> PayPal</label></div><div class="bump"><label><input type="checkbox" id="bp" '+(bump?'checked':'')+'><span>Yes, add '+x.bump.name+' for '+M(x.bump.price)+'<br><span class="mute" style="font-weight:400;font-size:14px">'+x.bump.desc+' One-time offer.</span></span></label></div></div><div class="card" style="align-self:start"><b>Order summary</b><div id="sm"></div><p id="ms" class="mute small" style="margin:12px 0 8px"></p><button class="btn" id="py" style="width:100%" disabled>Pay</button></div></div>';
+ const upd=()=>{const r=rows();$('sm').innerHTML=rh(r);$('py').textContent=sum(r)?'Pay '+M(sum(r)):'Start free trial';const ok=nm.trim().length>1&&/^\S+@\S+\.\S+$/.test(em.trim());$('py').disabled=!ok;$('ms').textContent=ok?'Demo only. Nothing is charged.':'Enter your name and email to continue.'};
+ $('nm').oninput=e=>{nm=e.target.value;upd()};$('em').oninput=e=>{em=e.target.value;upd()};
+ $('bp').onchange=e=>{bump=e.target.checked;log(bump?'add_order_bump':'remove_order_bump',{item:x.bump.name});upd()};
+ $('py').onclick=()=>{log('purchase',{value:sum(rows()),method:document.querySelector('input[name=pm]:checked').value});go(2)};upd()}
+function upsell(){const x=f(),u=x.up;let dl=0;
+ if(u.timer){try{dl=+sessionStorage.getItem('dl'+k)||0}catch(e){}if(!dl){dl=Date.now()+15*60000;try{sessionStorage.setItem('dl'+k,dl)}catch(e){}}}
+ $('app').innerHTML='<div class="card" style="max-width:600px;margin:36px auto 0"><p class="mute small">Your order is complete. One more thing.</p><h1 style="font-size:28px;margin:6px 0 12px">'+u.title+'</h1><p>'+u.desc+'</p>'+(u.timer?'<p class="small">This offer ends in <b id="tm">15:00</b></p>':'')+'<p style="margin:18px 0 10px"><button class="btn" id="uy">Yes, add it for '+M(u.price)+'</button></p><button class="btn g" id="un">No thanks</button><p class="mute small" style="margin:12px 0 0">Uses the payment method you just used. Nothing to re-enter.</p></div>';
+ if(u.timer){const t=()=>{const s=Math.max(0,Math.round((dl-Date.now())/1000));$('tm').textContent=Math.floor(s/60)+':'+String(s%60).padStart(2,'0');if(!s){clearInterval(tm);$('uy').disabled=true;$('tm').textContent='ended'}};t();tm=setInterval(t,1000)}
+ $('uy').onclick=()=>{up=true;log('upsell_accepted',{value:u.price});go(3)};$('un').onclick=()=>{up=false;log('upsell_declined');go(3)}}
+function done(){const x=f(),r=rows(true),id=k.slice(0,3).toUpperCase()+'-'+Math.random().toString(36).slice(2,8).toUpperCase(),items=x.done.slice();
+ if(bump)items.push('Added: '+x.bump.name);if(up)items.push('Added: '+x.up.name);
+ const key=()=>{const g=()=>Math.random().toString(36).slice(2,6).toUpperCase();return 'SLOT-'+g()+'-'+g()+'-'+g()};
+ let extra='';if(k==='software')extra='<p class="mute small" style="margin:14px 0 4px">Your licence key</p><div class="key">'+key()+'</div>';
+ if(k==='membership'){const d=new Date(Date.now()+7*864e5);extra='<p class="mute small" style="margin:14px 0 0">Your trial ends on '+d.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})+'. Cancel before then and you pay nothing.</p>'}
+ $('app').innerHTML='<h1 style="font-size:32px;margin-top:30px">You are in, '+(nm.trim().split(' ')[0]||'friend')+'.</h1><p class="mute">Order <b>'+id+'</b>. A receipt is on its way to <b>'+em.trim()+'</b>.</p><div class="g2"><div class="card"><b>Setting things up</b><ul class="chk ok" id="ok">'+items.map(a=>'<li>'+a+'</li>').join('')+'</ul>'+extra+'</div><div class="card"><b>What you paid today</b><div style="margin-top:8px">'+rh(r)+'</div></div></div><p style="margin-top:22px"><button class="btn g" id="rs">Restart this demo</button></p>';
+ [...$('ok').children].forEach((li,i)=>setTimeout(()=>li.classList.add('s'),300+i*450));log(x.ev,{order:id,total:sum(r)});
+ $('rs').onclick=()=>reset()}
+function reset(){bump=up=false;pl=0;nm=em='';try{sessionStorage.removeItem('dl'+k)}catch(e){}$('log').innerHTML='';go(0)}
+$('tabs').onclick=e=>{const a=e.target.dataset.k;if(!a||a===k)return;k=a;location.hash=a;reset()};
+$('tg').onclick=()=>{const r=document.documentElement,d=(r.dataset.t||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'))==='dark';r.dataset.t=d?'light':'dark'};
+go(0);
+</script>
+</body>
+  </html>
