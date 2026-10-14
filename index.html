@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>Oluwadunsin | WordPress Funnel Developer</title>
+<meta name="description" content="Oluwadunsin builds WordPress funnels for digital and physical products: sales pages, checkouts, upsells, delivery and tracking.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script>(function(){var m='dark',a='emerald';try{var t=localStorage.getItem('tb-theme');if(t){t=t.split('|');m=t[0];a=t[1]}else if(matchMedia('(prefers-color-scheme: light)').matches){m='light'}}catch(e){}var r=document.documentElement;r.dataset.mode=m;r.dataset.accent=a})();</script>
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+tailwind.config={darkMode:'class',theme:{extend:{colors:{slate:{50:'rgb(var(--s-50) / <alpha-value>)',100:'rgb(var(--s-100) / <alpha-value>)',200:'rgb(var(--s-200) / <alpha-value>)',300:'rgb(var(--s-300) / <alpha-value>)',400:'rgb(var(--s-400) / <alpha-value>)',500:'rgb(var(--s-500) / <alpha-value>)',600:'rgb(var(--s-600) / <alpha-value>)',700:'rgb(var(--s-700) / <alpha-value>)',800:'rgb(var(--s-800) / <alpha-value>)',850:'rgb(var(--s-850) / <alpha-value>)',900:'rgb(var(--s-900) / <alpha-value>)',950:'rgb(var(--s-950) / <alpha-value>)'},emerald:{300:'rgb(var(--e-300) / <alpha-value>)',400:'rgb(var(--e-400) / <alpha-value>)',500:'rgb(var(--e-500) / <alpha-value>)',900:'rgb(var(--e-900) / <alpha-value>)',950:'rgb(var(--e-950) / <alpha-value>)'}},fontFamily:{sans:['Inter','system-ui','-apple-system','sans-serif'],mono:['JetBrains Mono','Fira Code','monospace']}}}}
+</script>
+<style>
+:root{--s-50:248 250 252;--s-100:241 245 249;--s-200:226 232 240;--s-300:203 213 225;--s-400:148 163 184;--s-500:100 116 139;--s-600:71 85 105;--s-700:51 65 85;--s-800:30 41 59;--s-850:21 30 50;--s-900:15 23 42;--s-950:10 15 29;--e-300:110 231 183;--e-400:52 211 153;--e-500:16 185 129;--e-900:6 78 59;--e-950:2 44 34;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html[data-mode=light]{--s-950:248 250 252;--s-900:255 255 255;--s-850:241 245 249;--s-800:226 232 240;--s-700:203 213 225;--s-600:148 163 184;--s-500:100 116 139;--s-400:71 85 105;--s-300:51 65 85;--s-200:30 41 59;--s-100:15 23 42;--s-50:2 6 23;}
+html[data-accent=emerald]{--e-300:110 231 183;--e-400:52 211 153;--e-500:16 185 129;--e-900:6 78 59;--e-950:2 44 34;}html[data-mode=light][data-accent=emerald]{--e-300:4 120 87;--e-400:4 120 87;--e-500:5 150 105;--e-900:167 243 208;--e-950:236 253 245;}
+html[data-accent=sky]{--e-300:125 211 252;--e-400:56 189 248;--e-500:14 165 233;--e-900:12 74 110;--e-950:8 47 73;}html[data-mode=light][data-accent=sky]{--e-300:3 105 161;--e-400:3 105 161;--e-500:2 132 199;--e-900:186 230 253;--e-950:240 249 255;}
+html[data-accent=amber]{--e-300:252 211 77;--e-400:251 191 36;--e-500:245 158 11;--e-900:120 53 15;--e-950:69 26 3;}html[data-mode=light][data-accent=amber]{--e-300:180 83 9;--e-400:180 83 9;--e-500:217 119 6;--e-900:253 230 138;--e-950:255 251 235;}
+html[data-accent=rose]{--e-300:253 164 175;--e-400:251 113 133;--e-500:244 63 94;--e-900:136 19 55;--e-950:76 5 25;}html[data-mode=light][data-accent=rose]{--e-300:190 18 60;--e-400:190 18 60;--e-500:225 29 72;--e-900:254 205 211;--e-950:255 241 242;}
+html{scroll-padding-top:72px}
+body{background:rgb(var(--s-950));color:rgb(var(--s-100));font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;transition:background-color .2s,color .2s}
+::selection{background:rgb(var(--e-500));color:rgb(var(--s-950))}
+.glass{background:rgb(var(--s-900)/.78);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgb(var(--s-800)/.9)}
+input[type=range]{-webkit-appearance:none;appearance:none;height:6px;border-radius:99px;background:rgb(var(--s-800));width:100%;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:rgb(var(--e-400));border:0;transition:transform .15s}
+input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:rgb(var(--e-400));border:0}
+input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.12)}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid rgb(var(--e-400));outline-offset:2px}
+.tab[aria-selected=true]{background:rgb(var(--e-500));color:rgb(var(--s-950));border-color:rgb(var(--e-500))}
+.sw{width:18px;height:18px;border-radius:50%;border:2px solid transparent;box-shadow:0 0 0 1px rgb(var(--s-700))}
+.sw[aria-pressed=true]{border-color:rgb(var(--s-950));box-shadow:0 0 0 2px rgb(var(--s-100))}
+.codebox{background:#0b1120;border-color:#1e293b;color:#cbd5e1}
+.codebox .bar{border-color:#1e293b;color:#64748b}.codebox .bar button:hover{color:#fff}
+.k{color:#c084fc}.s{color:#6ee7b7}.c{color:#64748b}.f{color:#7dd3fc}.n{color:#fbbf24}
+dialog{background:rgb(var(--s-900));color:rgb(var(--s-100));border:1px solid rgb(var(--s-800));border-radius:14px;padding:0;max-width:min(92vw,760px);width:100%}
+dialog::backdrop{background:rgba(2,6,23,.75)}
+.flow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12px}
+.flow span.node{padding:6px 10px;border:1px solid rgb(var(--s-700));border-radius:6px;background:rgb(var(--s-950));font-family:'JetBrains Mono',monospace}
+.flow span.node.hot{border-color:rgb(var(--e-500));color:rgb(var(--e-300))}
+.flow i{color:rgb(var(--s-600));font-style:normal}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+.chip{font-size:14px;padding:6px 13px;border-radius:99px;border:1px solid rgb(var(--s-700));color:rgb(var(--s-300))}.chip:hover{border-color:rgb(var(--s-500))}.chip[aria-pressed=true]{background:rgb(var(--e-500));border-color:rgb(var(--e-500));color:rgb(var(--s-950))}.tag{display:inline-block;font-size:12px;padding:2px 8px;border-radius:4px;border:1px dashed rgb(var(--s-600));color:rgb(var(--s-400))}
+</style>
+</head>
+<body>
+
+<header class="sticky top-0 z-40 glass" style="top:env(safe-area-inset-top,0px)">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+    <a href="#top" class="font-semibold tracking-tight">Oluwadunsin<span class="text-emerald-400">.</span></a>
+    <nav class="hidden md:flex gap-6 text-sm text-slate-400"><a class="hover:text-slate-100" href="#builds">Funnel builds</a><a class="hover:text-slate-100" href="#check">Funnel check</a><a class="hover:text-slate-100" href="#services">Services</a><a class="hover:text-slate-100" href="#process">Process</a><a class="hover:text-slate-100" href="#contact">Contact</a></nav>
+    <div class="flex items-center gap-2.5 sm:gap-3"><div class="flex items-center gap-2" role="group" aria-label="Accent colour"><button type="button" class="sw" data-accent="emerald" style="background:#10b981" aria-label="Emerald accent"></button><button type="button" class="sw" data-accent="sky" style="background:#0ea5e9" aria-label="Sky accent"></button><button type="button" class="sw" data-accent="amber" style="background:#f59e0b" aria-label="Amber accent"></button><button type="button" class="sw" data-accent="rose" style="background:#f43f5e" aria-label="Rose accent"></button></div><button id="mode" type="button" class="text-xs border border-slate-700 hover:border-slate-500 rounded-md px-2 py-1.5 text-slate-300" aria-label="Switch between light and dark">Light</button><a href="#contact" class="text-sm font-medium bg-emerald-500 hover:bg-emerald-400 text-slate-950 px-3.5 py-1.5 rounded-md transition-colors">Book audit</a></div>
+  </div>
+</header>
+
+<main id="top">
+<section class="max-w-5xl mx-auto px-4 sm:px-6 pt-14 sm:pt-20 pb-12">
+  <p class="text-sm text-slate-400 mb-4">Oluwadunsin, WordPress developer</p>
+  <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.05] max-w-3xl">I build the funnel behind your digital product, from first click to delivered download.</h1>
+  <p class="mt-6 text-lg text-slate-400 max-w-2xl">Sales pages, one-page checkouts, order bumps, upsells, delivery emails and tracking, all on WordPress. I work mostly with courses, ebooks, templates, software and memberships, and I also build funnels for physical products.</p>
+  <div class="mt-8 flex flex-wrap gap-3">
+    <a href="#builds" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold px-5 py-3 rounded-md transition-colors">See my funnel builds</a>
+    <a href="#contact" class="border border-slate-700 hover:border-slate-500 px-5 py-3 rounded-md transition-colors">Hire me</a>
+  </div>
+  <p class="mt-12 text-sm text-slate-400">The parts of a funnel I usually build:</p>
+  <div class="flow mt-3" style="font-size:13px"><span class="node">Landing page</span><i>&gt;</i><span class="node">Sales page</span><i>&gt;</i><span class="node hot">Checkout</span><i>&gt;</i><span class="node hot">Order bump</span><i>&gt;</i><span class="node hot">Upsell</span><i>&gt;</i><span class="node">Thank-you page</span><i>&gt;</i><span class="node">Delivery</span><i>&gt;</i><span class="node">Email follow-up</span></div>
+</section>
+
+<section id="builds" class="max-w-5xl mx-auto px-4 sm:px-6 py-12">
+  <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">Funnel builds</h2>
+  <p class="text-slate-400 mt-2 max-w-2xl">Six funnels, one per product type. Open one to see every step, the stack and what I check before launch.</p>
+  <div id="chips" class="mt-6 flex flex-wrap gap-2" role="group" aria-label="Filter by product type"></div>
+  <div id="grid" class="mt-6 grid md:grid-cols-2 gap-5"></div>
+</section>
+
+<section id="check" class="max-w-5xl mx-auto px-4 sm:px-6 py-12">
+  <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">Free funnel check</h2>
+  <p class="text-slate-400 mt-2 max-w-2xl">Answer five quick questions and get a prioritised list of what is probably costing you sales. It runs in your browser and nothing is stored.</p>
+  <form id="chk" class="mt-6 glass rounded-xl p-5 sm:p-7 grid sm:grid-cols-2 gap-4" novalidate></form>
+  <div id="chk-out" class="mt-6 hidden" aria-live="polite"></div>
+</section>
+
+<section id="services" class="max-w-5xl mx-auto px-4 sm:px-6 py-12">
+  <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">What you can hire me for</h2>
+  <dl class="mt-6 border-t border-slate-800">
+    <div class="grid sm:grid-cols-3 gap-1 sm:gap-6 py-4 border-b border-slate-800"><dt class="font-semibold">Full funnel build</dt><dd class="sm:col-span-2 text-slate-400">Sales page, checkout, bump, upsell, delivery and the email sequence. Usually 2 to 3 weeks.</dd></div>
+    <div class="grid sm:grid-cols-3 gap-1 sm:gap-6 py-4 border-b border-slate-800"><dt class="font-semibold">Checkout and upsell rebuild</dt><dd class="sm:col-span-2 text-slate-400">Cut steps, add local payment methods, fix mobile payment problems, add a bump and a one-click upsell.</dd></div>
+    <div class="grid sm:grid-cols-3 gap-1 sm:gap-6 py-4 border-b border-slate-800"><dt class="font-semibold">Funnel audit</dt><dd class="sm:col-span-2 text-slate-400">A written review of page speed, drop-off points and tracking, with fixes in priority order. About 3 days.</dd></div>
+    <div class="grid sm:grid-cols-3 gap-1 sm:gap-6 py-4 border-b border-slate-800"><dt class="font-semibold">Speed fixes</dt><dd class="sm:col-span-2 text-slate-400">Remove scripts and plugins that slow pages down, fix images and fonts, set up caching.</dd></div>
+    <div class="grid sm:grid-cols-3 gap-1 sm:gap-6 py-4 border-b border-slate-800"><dt class="font-semibold">Tracking and automation</dt><dd class="sm:col-span-2 text-slate-400">GA4 and Meta purchase events, CRM tags, licence keys, course enrolment and signed webhooks.</dd></div>
+  </dl>
+  <h3 class="text-lg font-bold mt-12">Tools I work with</h3>
+  <dl class="mt-4 grid sm:grid-cols-[170px_1fr] gap-x-6 gap-y-2 text-sm">
+    <dt class="text-slate-400">Builders</dt><dd>Bricks, Breakdance, Elementor, Gutenberg with GenerateBlocks</dd>
+    <dt class="text-slate-400">Funnels and carts</dt><dd>FunnelKit, CartFlows, WooCommerce, Easy Digital Downloads</dd>
+    <dt class="text-slate-400">Payments</dt><dd>Stripe, PayPal, Paystack, Flutterwave</dd>
+    <dt class="text-slate-400">Members and courses</dt><dd>MemberPress, LearnDash, FluentCommunity</dd>
+    <dt class="text-slate-400">Email and CRM</dt><dd>FluentCRM, ConvertKit, MailerLite, ActiveCampaign</dd>
+    <dt class="text-slate-400">Code</dt><dd>PHP, JavaScript, WP-CLI, Git, Action Scheduler, webhooks</dd>
+  </dl>
+  <p class="text-sm text-slate-400 mt-8 mb-2">A small example of the custom code I write: send a signed webhook when an order completes.</p>
+  <div class="codebox rounded-xl border overflow-hidden"><pre class="p-4 overflow-x-auto font-mono text-xs sm:text-sm leading-relaxed" tabindex="0"><code><span class="f">add_action</span>( <span class="s">'woocommerce_order_status_completed'</span>, <span class="k">function</span> ( $order_id ) {
+    $order   = <span class="f">wc_get_order</span>( $order_id );
+    $payload = <span class="f">wp_json_encode</span>( [ <span class="s">'order'</span> =&gt; $order_id, <span class="s">'email'</span> =&gt; $order-&gt;<span class="f">get_billing_email</span>() ] );
+    <span class="f">wp_remote_post</span>( FULFIL_URL, [
+        <span class="s">'headers'</span> =&gt; [ <span class="s">'X-Signature'</span> =&gt; <span class="f">hash_hmac</span>( <span class="s">'sha256'</span>, $payload, FULFIL_SECRET ) ],
+        <span class="s">'body'</span>    =&gt; $payload,
+    ] );
+} );</code></pre></div>
+</section>
+
+<section id="process" class="max-w-5xl mx-auto px-4 sm:px-6 py-12">
+  <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">How a project runs</h2>
+  <ol class="mt-6 grid sm:grid-cols-2 gap-x-10 gap-y-6 max-w-3xl">
+    <li><b>1. Scope.</b> <span class="text-slate-400">We agree the pages, the offer, the payment methods and the tools on one page before I start.</span></li>
+    <li><b>2. Build on staging.</b> <span class="text-slate-400">You get a private link to follow progress. Nothing touches your live site yet.</span></li>
+    <li><b>3. Test with payments.</b> <span class="text-slate-400">Test orders through every path: bump, upsell, refund, failed card. I confirm tracking fires.</span></li>
+    <li><b>4. Launch and hand over.</b> <span class="text-slate-400">A short screen recording shows how to edit each page. Two weeks of fixes are included.</span></li>
+  </ol>
+</section>
+
+<section id="contact" class="max-w-2xl mx-auto px-4 sm:px-6 py-12">
+  <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">Tell me about your product</h2>
+  <p class="text-slate-400 mt-2">Say what you sell and what is not working. I reply within a day. Or email <a class="text-emerald-400 underline" href="mailto:yehohanan09@gmail.com">yehohanan09@gmail.com</a>.</p>
+  <form id="form" class="mt-6 glass rounded-xl p-5 sm:p-7 space-y-4" novalidate>
+    <div class="grid sm:grid-cols-2 gap-4">
+      <div><label for="f-n" class="block text-sm text-slate-300 mb-1.5">Name</label><input id="f-n" required autocomplete="name" class="w-full bg-slate-950 border border-slate-700 rounded-md px-3 py-2.5 focus:border-emerald-500"></div>
+      <div><label for="f-e" class="block text-sm text-slate-300 mb-1.5">Email</label><input id="f-e" type="email" required autocomplete="email" class="w-full bg-slate-950 border border-slate-700 rounded-md px-3 py-2.5 focus:border-emerald-500"></div>
+    </div>
+    <div><label for="f-m" class="block text-sm text-slate-300 mb-1.5">What are you selling, and what do you need?</label><textarea id="f-m" rows="4" class="w-full bg-slate-950 border border-slate-700 rounded-md px-3 py-2.5 focus:border-emerald-500"></textarea></div>
+    <p id="err" class="text-sm text-red-500 hidden" role="alert">Enter your name and a valid email.</p>
+    <button id="go" type="submit" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold py-3 rounded-md transition-colors">Send message</button>
+  </form>
+  <div id="ok" class="hidden mt-6 glass rounded-xl p-8 text-center" role="status"><h3 class="text-xl font-bold">Thanks, <span id="ok-n"></span>.</h3><p class="text-slate-400 mt-2">I'll reply to <span id="ok-e" class="text-slate-200"></span> within one working day.</p></div>
+</section>
+</main>
+<footer class="border-t border-slate-800 py-8 text-center text-sm text-slate-500">Oluwadunsin. WordPress funnels for digital products. Nigeria (WAT, UTC+1).</footer>
+<dialog id="dlg" aria-label="Funnel details"><div class="p-5 sm:p-7"><div class="flex justify-between items-start gap-4 mb-3"><div><p id="d-k" class="text-xs text-emerald-400"></p><h3 id="d-n" class="text-xl font-bold"></h3></div><button id="dlg-x" type="button" class="text-slate-400 hover:text-slate-100 text-sm">Close</button></div><div id="d-b"></div></div></dialog>
+
+<script>
+const root=document.documentElement,cs=document.querySelector('meta[name=color-scheme]');
+function setTheme(m,a,save){root.dataset.mode=m;root.dataset.accent=a;cs.content=m;document.getElementById('mode').textContent=m==='dark'?'Light':'Dark';document.querySelectorAll('.sw').forEach(b=>b.setAttribute('aria-pressed',b.dataset.accent===a));if(save){try{localStorage.setItem('tb-theme',m+'|'+a)}catch(e){}}}
+setTheme(root.dataset.mode,root.dataset.accent,false);
+document.getElementById('mode').onclick=()=>setTheme(root.dataset.mode==='dark'?'light':'dark',root.dataset.accent,true);
+document.querySelectorAll('.sw').forEach(b=>b.onclick=()=>setTheme(root.dataset.mode,b.dataset.accent,true));
+
+/* EDIT HERE: set live to your demo URL once each funnel is built. A leading * marks a revenue step. */
+const P=[
+{t:'course',k:'Cohort course',n:'Freelance Finance Cohort',p:'A paid cohort for freelancers, entered through a free lesson so buyers arrive warm.',live:'demos/funnels.html#course',
+ s:['Free lesson opt-in','Sales page','*Checkout','*Order bump','*One-click upsell','Course enrolment','Welcome emails'],
+ b:'Bricks, FunnelKit, WooCommerce, LearnDash, FluentCRM, Paystack, Stripe',
+ d:['Opt-in page that delivers the free lesson by email','Long sales page with cohort dates and a clear refund line','One-page checkout with naira and dollar pricing','Workbook bump and a 1:1 review upsell','Instant enrolment on payment, not a nightly sync'],
+ c:['Test order through bump and upsell','Failed-card email fires','Enrolment happens within seconds','GA4 purchase event matches the order']},
+{t:'ebook',k:'Ebook tripwire',n:'$9 Ebook into $47 Program',p:'A cheap ebook that earns trust, then a timed offer for the larger video program.',live:'demos/funnels.html#ebook',
+ s:['Opt-in page','*$9 checkout','*Program upsell (timed)','Download page','Five-email sequence'],
+ b:'Elementor, CartFlows, ConvertKit, Stripe',
+ d:['Opt-in and thank-you pages','Offer timer that runs on the server so a refresh does not reset it','Secure download link that expires','Email sequence that sells the program for five days'],
+ c:['Timer survives refresh and new tabs','Download link expires as set','Decline path leads to the download, not a dead end']},
+{t:'template',k:'Templates and downloads',n:'Notion Template Store',p:'A small store that sells templates with instant delivery and a bundle offer, without paying marketplace fees.',live:'',
+ s:['Product page','*Checkout','*Bundle upsell','Instant download','Receipt email'],
+ b:'GeneratePress, WooCommerce, FunnelKit, Stripe, Postmark',
+ d:['Product pages with preview galleries','Downloads and re-download from the account page','Bundle upsell after payment','Redirects from old marketplace links'],
+ c:['Download works on mobile','Refund removes access','Receipt lands in the inbox, not spam']},
+{t:'software',k:'Software or plugin',n:'Plugin Licence Store',p:'Pricing with annual and lifetime plans, and a licence key issued the second payment clears.',live:'demos/funnels.html#software',
+ s:['Pricing page','*Checkout','*Agency licence bump','Webhook','Licence key email','Account dashboard'],
+ b:'Bricks, FunnelKit, WooCommerce, Stripe, custom PHP webhook',
+ d:['Pricing page with plan toggle','Signed webhook that creates the key and the account','Retries if the licence service is down','Customer dashboard showing keys and renewals'],
+ c:['Key arrives within seconds','Retry works when the API is offline','Renewal reminder emails send']},
+{t:'membership',k:'Membership',n:'Design Community Membership',p:'A free trial that turns into a monthly plan, with emails for failed renewals.',live:'demos/funnels.html#membership',
+ s:['Landing page','Trial sign-up','*Paid plan checkout','Members area','Renewal and recovery emails'],
+ b:'Bricks, MemberPress, FluentCommunity, Stripe subscriptions',
+ d:['Gated content and a members home page','Trial-to-paid flow with card on file','Failed-payment recovery sequence','Cancel flow with a pause option'],
+ c:['Trial converts on day 7','Cancelled members lose access on time','Recovery email sends after a failed charge']},
+{t:'physical',k:'Physical product',n:'Handmade Candle Store',p:'A funnel for a physical product: bundles, local payments and order updates people actually see.',live:'',
+ s:['Product page','Bundle builder','*Checkout','*Post-purchase add-on','WhatsApp order alert','Abandoned-cart email'],
+ b:'Bricks, WooCommerce, FunnelKit, Paystack, FluentCRM',
+ d:['Product pages with a pick-your-scents bundle','Paystack checkout with pay-on-delivery for chosen areas','Order notification sent to the seller on WhatsApp','Abandoned-cart emails after one hour and one day'],
+ c:['Delivery fee changes by area','Stock updates after each order','Abandoned-cart email stops once the person buys']}];
+
+const labels={all:'All',course:'Courses',ebook:'Ebooks',template:'Templates',software:'Software',membership:'Memberships',physical:'Physical products'};
+const chips=document.getElementById('chips'),grid=document.getElementById('grid');
+const flow=a=>'<div class="flow">'+a.map(x=>{const h=x[0]==='*';return '<span class="node'+(h?' hot':'')+'">'+(h?x.slice(1):x)+'</span>'}).join('<i>&gt;</i>')+'</div>';
+function render(f){grid.innerHTML=P.filter(p=>f==='all'||p.t===f).map(p=>{const i=P.indexOf(p);return '<article class="glass rounded-xl p-5 flex flex-col"><p class="text-xs text-emerald-400">'+p.k+'</p><h3 class="text-lg font-bold mt-1">'+p.n+'</h3><p class="text-sm text-slate-400 mt-2">'+p.p+'</p><div class="mt-4">'+flow(p.s)+'</div><button type="button" data-i="'+i+'" class="mt-5 text-sm font-medium text-emerald-400 hover:underline text-left">See the full funnel</button></article>'}).join('');
+[...chips.children].forEach(b=>b.setAttribute('aria-pressed',b.dataset.f===f))}
+Object.keys(labels).forEach(k=>{const b=document.createElement('button');b.type='button';b.className='chip';b.dataset.f=k;b.textContent=labels[k];b.onclick=()=>render(k);chips.appendChild(b)});
+render('all');
+const dlg=document.getElementById('dlg'),ul=a=>'<ul class="mt-2 space-y-1.5 text-sm text-slate-300">'+a.map(x=>'<li class="flex gap-2"><span class="text-emerald-400">+</span><span>'+x+'</span></li>').join('')+'</ul>';
+grid.addEventListener('click',e=>{const b=e.target.closest('[data-i]');if(!b)return;const p=P[+b.dataset.i];
+document.getElementById('d-k').textContent=p.k;document.getElementById('d-n').textContent=p.n;
+document.getElementById('d-b').innerHTML='<p class="text-slate-400 text-sm">'+p.p+'</p><div class="mt-4">'+flow(p.s)+'</div><h4 class="font-semibold mt-6">What I built</h4>'+ul(p.d)+'<h4 class="font-semibold mt-6">Built with</h4><p class="text-sm text-slate-300 mt-2">'+p.b+'</p><h4 class="font-semibold mt-6">Checked before launch</h4>'+ul(p.c)+'<div class="mt-6">'+(p.live?'<a class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold px-4 py-2 rounded-md inline-block" href="'+p.live+'" target="_blank" rel="noopener">Try the funnel</a><p class="text-xs text-slate-400 mt-2">Interactive demo of the full flow: offer, checkout with bump, one-click upsell and confirmation, with the tracking events shown.</p>':'<span class="tag">Live demo link coming soon</span>')+'</div>';
+dlg.showModal()});
+document.getElementById('dlg-x').onclick=()=>dlg.close();dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
+
+const $=id=>document.getElementById(id);
+$('form').addEventListener('submit',e=>{e.preventDefault();const n=$('f-n').value.trim(),m=$('f-e').value.trim();
+if(!n||!/^\S+@\S+\.\S+$/.test(m)){$('err').classList.remove('hidden');return}
+$('err').classList.add('hidden');const g=$('go');g.disabled=true;g.textContent='Sending...';
+const FORM_ENDPOINT='https://formsubmit.co/ajax/yehohanan09@gmail.com'; /* Sends to your inbox via FormSubmit (first message triggers one activation email to you). If sending fails, the visitor's email app opens instead. */
+function done(n,m){$('form').classList.add('hidden');$('ok-n').textContent=n;$('ok-e').textContent=m;$('ok').classList.remove('hidden')}
+if(FORM_ENDPOINT){fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({name:n,email:m,message:$('f-m').value,_subject:'Portfolio enquiry from '+n,_replyto:m})}).then(r=>{if(!r.ok)throw 0;done(n,m)}).catch(mail)}
+else{mail()}
+function mail(){location.href='mailto:yehohanan09@gmail.com?subject='+encodeURIComponent('Funnel project from '+n)+'&body='+encodeURIComponent($('f-m').value+'\n\n'+n+' ('+m+')');done(n,m)}});
+
+/* Funnel check */
+const Q=[
+{id:'type',q:'What do you sell?',o:[['A course',0],['An ebook or templates',0],['Software or a plugin',0],['A membership',0],['A physical product',0]]},
+{id:'ck',q:'How many steps is your checkout?',o:[['One page',0],['Two or three steps',1,'Checkout has extra steps. Merge them into one page and allow guest checkout.'],['Four or more',2,'Four or more checkout steps lose buyers. Collapse to one page and remove account creation before payment.'],['Not sure',1,'You are not sure how long checkout is. Buy your own product on a phone and count the steps.']]},
+{id:'mo',q:'How fast do your pages load on mobile?',o:[['Under 2 seconds',0],['2 to 4 seconds',1,'Mobile pages are slow. Trim scripts, resize images and set up caching.'],['Over 4 seconds',2,'Pages over 4 seconds lose a large share of mobile visitors. Start with scripts, images and hosting.'],['I do not know',1,'You do not know your mobile speed. Run PageSpeed Insights on your sales page and checkout.']]},
+{id:'of',q:'Do you have an order bump or upsell?',o:[['Both',0],['One of them',1,'One offer step is missing. Add the other to raise order value.'],['Neither',2,'With no bump or upsell every buyer pays only the base price. Add a bump at checkout and an upsell after payment.']]},
+{id:'dl',q:'How does the buyer get the product?',o:[['Instantly and automatically',0],['Partly by hand',1,'Some delivery is manual. Automate access and receipts so buyers are not left waiting.'],['By hand',2,'Manual delivery delays access and creates support emails. Automate it with a webhook or an LMS or licence integration.']]},
+{id:'tr',q:'Is purchase tracking set up?',o:[['Yes, and I checked it',0],['Installed, not checked',1,'Tracking is installed but unverified. Compare GA4 purchases with real orders for a week.'],['No',2,'Without purchase tracking you cannot tell which traffic pays. Set up GA4 and ad-platform purchase events.']]}];
+const chk=document.getElementById('chk'),out=document.getElementById('chk-out');
+chk.innerHTML=Q.map(x=>'<div><label for="q-'+x.id+'" class="block text-sm text-slate-300 mb-1.5">'+x.q+'</label><select id="q-'+x.id+'" class="w-full bg-slate-950 border border-slate-700 rounded-md px-3 py-2.5 focus:border-emerald-500">'+x.o.map((o,i)=>'<option value="'+i+'">'+o[0]+'</option>').join('')+'</select></div>').join('')+'<div class="sm:col-span-2"><button type="submit" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold px-5 py-3 rounded-md transition-colors">Check my funnel</button></div>';
+let report='';
+chk.addEventListener('submit',e=>{e.preventDefault();const f=[];let type='';
+Q.forEach(x=>{const o=x.o[+document.getElementById('q-'+x.id).value];if(x.id==='type')type=o[0].toLowerCase();else if(o[1]>0)f.push({sev:o[1],t:o[2]})});
+f.sort((a,b)=>b.sev-a.sev);
+report='Funnel check for '+type+':\n'+(f.length?f.map(x=>'- ('+(x.sev===2?'high':'medium')+') '+x.t).join('\n'):'- No obvious gaps from these answers.');
+out.innerHTML='<div class="glass rounded-xl p-5 sm:p-7"><h3 class="font-bold text-lg">'+(f.length?f.length+' thing'+(f.length>1?'s':'')+' to fix first':'Your basics look solid')+'</h3>'+(f.length?'<ul class="mt-3 space-y-3">'+f.map(x=>'<li class="flex gap-3"><span class="shrink-0 text-xs mt-1 px-2 py-0.5 rounded border '+(x.sev===2?'border-red-500 text-red-500':'border-slate-500 text-slate-400')+'">'+(x.sev===2?'High':'Medium')+'</span><span class="text-slate-300">'+x.t+'</span></li>').join('')+'</ul>':'<p class="text-slate-400 mt-2">Nothing stands out from five answers. A proper audit looks at real data and finds what a quick check cannot.</p>')+'<button id="send-rep" type="button" class="mt-5 border border-slate-700 hover:border-slate-500 px-4 py-2 rounded-md text-sm transition-colors">Send these findings to me for a proper audit</button></div>';
+out.classList.remove('hidden');
+document.getElementById('send-rep').onclick=()=>{document.getElementById('f-m').value=report+'\n\nI would like a proper audit.';document.getElementById('contact').scrollIntoView({behavior:'smooth'});document.getElementById('f-n').focus()}});
+</script>
+</body>
+</html>
